@@ -1,0 +1,371 @@
+@import "variables";
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+  align-items: center;
+  height: 100vh;
+}
+
+.navBar {
+  width: 100vw;
+  height: 50px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  a,
+  span {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  .user-name {
+    font-family: "Manrope", sans-serif;
+    margin-left: 20px;
+  }
+}
+
+.logedIn-Bar {
+  width: 100vw;
+  height: 60px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  // color: $text-color;
+  a {
+    //margin-right: 50px;
+    cursor: pointer;
+  }
+
+  .heart {
+    width: 55px;
+    height: 35px;
+    &:hover {
+      color: red;
+    }
+  }
+
+  .user-name {
+    font-family: "Manrope", sans-serif;
+    // color: $text-color;
+    //margin-left: 20px;
+    margin-top: 1rem;
+  }
+  .like_div {
+    height: 60px;
+    //width: 100px;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+  .my_favs {
+    width: 80px;
+  }
+}
+
+.container {
+  display: flex;
+  position: relative;
+  width: 500px;
+  height: 320px;
+  margin-top: 100px;
+  // border: 1px solid $border-color;
+  border-radius: 15px;
+}
+
+#advArea {
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 450px;
+  margin: 0 auto;
+  height: 200px;
+
+  .advId {
+    font-family: "Manrope", sans-serif;
+    font-size: medium;
+    // color: $text-color;
+  }
+
+  .adv {
+    // color: $text-color;
+    font-family: "Manrope", sans-serif;
+    font-size: x-large;
+
+    text-align: center;
+  }
+}
+
+#theLines {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  top: 230px;
+  left: 15px;
+
+  .line {
+    background-color: beige;
+    margin: 0;
+    width: 220px;
+    height: 1px;
+    border: 0ch;
+    margin-bottom: 4px;
+  }
+
+  .dotes {
+    margin: 0;
+    margin-right: 2px;
+
+    width: 4px;
+    height: 9px;
+    border: 0ch;
+    border-radius: 10px;
+    background-color: aliceblue;
+  }
+}
+
+#button {
+  position: absolute;
+  top: 293px;
+  margin: 0, auto;
+  left: 220px;
+
+  svg {
+    margin-top: 5px;
+  }
+  text .btn {
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 31px;
+    height: 55px;
+    width: 55px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn:active {
+    background-color: white;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+    animation: glowing 1300ms infinite;
+  }
+
+  .btn:hover {
+    color: $text-color;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+
+  z-index: 1;
+}
+
+.modalContainer {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 450px;
+  min-height: 500px;
+  position: fixed;
+  top: 300px;
+  left: 50%;
+  // background-color: hsl(216, 14%, 21%);
+  border-radius: 10px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+
+  .modalBtn {
+    position: relative;
+    bottom: 5%;
+    left: 100%;
+    cursor: pointer;
+  }
+  .title {
+    text-align: center;
+  }
+
+  label {
+    display: flex;
+    text-transform: capitalize;
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+  }
+
+  input {
+    width: 100%;
+    line-height: 3rem;
+    background-color: rgb(229, 231, 235);
+    border: none;
+    border-radius: 4px;
+  }
+
+  .log-button {
+    margin-top: 2.2rem;
+    width: 100%;
+    height: 3rem;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+}
+.favs {
+  font-family: "Manrope", sans-serif;
+  // color: hsl(193, 38%, 86%);
+  font-size: 17px;
+  button {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.trash {
+  // color: $text-color;
+  cursor: pointer;
+}
+
+//slider
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.d-text {
+  color: $text-color;
+}
+.dark-border {
+  border: 1px solid $border-color;
+}
+.dark-bg1 {
+  background-color: $bg-color;
+}
+.dark-bg2 {
+  background-color: $nav-color;
+}
+svg {
+  // background-color: red;
+}
+.l-text {
+  color: $ltext-color;
+}
+.lbtn {
+  background-color: $ltext-color;
+}
+.dbtn {
+  background-color: $text-color;
+}
+.light-border {
+  // border: 1px solid yellow;
+}
+.light-bg1 {
+  background-color: $lbg-color;
+}
+.light-bg2 {
+  background-color: $lnav-color;
+}
+
+.dlb {
+  color: $text-color;
+  background-color: $bg-color;
+}
+.llb {
+  color: $ltext-color;
+  background-color: $lbg-color;
+}
+
+// .bgr{
+//   background-color: white;
+//   color: white;
+// }
