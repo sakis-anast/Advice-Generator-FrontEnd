@@ -28,7 +28,7 @@ const LoginModal = ({
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3636/user/login", {
+      .post("https://advice-generator-api.onrender.com/user/login", {
         username,
         password,
       })

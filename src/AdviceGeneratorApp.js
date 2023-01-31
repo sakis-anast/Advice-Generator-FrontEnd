@@ -74,7 +74,7 @@ function AdviceGeneratorApp() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       axios
-        .post("http://localhost:3636/user/verify", {
+        .post("https://advice-generator-api.onrender.com/user/verify", {
           token: localStorage.getItem("token"),
         })
         .then(({ data }) => {
@@ -88,14 +88,14 @@ function AdviceGeneratorApp() {
 
   async function faveAdvices() {
     await axios
-      .post("http://localhost:3636/advice/get", { userId: user._id })
+      .post("https://advice-generator-api.onrender.com/advice/get", { userId: user._id })
       .then(({ data }) => {
         setGetAdvices(data);
       });
   }
   const likeAdvice = () => {
     axios
-      .post("http://localhost:3636/advice/", {
+      .post("https://advice-generator-api.onrender.com/advice/", {
         advice: advice,
         userId: user._id,
       })
@@ -120,7 +120,7 @@ function AdviceGeneratorApp() {
     setLoading(false);
   };
   const deleteAdvice = async (id) => {
-    await fetch("http://localhost:3636/advice/" + id, {
+    await fetch("https://advice-generator-api.onrender.com/advice/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())

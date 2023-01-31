@@ -22,7 +22,7 @@ const SignupModal = ({ open, onClose, setOpenSignupModal, darkMode }) => {
   const signUp = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3636/user/signup", {
+      .post("https://advice-generator-api.onrender.com/user/signup", {
         username,
         password,
       })
